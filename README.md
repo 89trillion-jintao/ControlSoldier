@@ -15,22 +15,19 @@
     {
         if (Input.GetKey("a"))
         {
-            soldierAnimator.runtimeAnimatorController= Resources.Load<RuntimeAnimatorController>("animation/Attack");//攻击
-            Invoke(nameof(AttackForRest),1f);//一秒后攻击后切换为休息状态
+            soldierAnimator.SetTrigger("attack");//攻击一次后进入休息状态
+            soldierAnimator.SetBool("run",false);
         }
         if (Input.GetKey("r"))
         {
-            soldierAnimator.runtimeAnimatorController= Resources.Load<RuntimeAnimatorController>("animation/Run"); // 奔跑
+            soldierAnimator.SetBool("run",true);
+            soldierAnimator.SetBool("idol",false);//奔跑
         }
         if (Input.GetKey("i"))
         {
-            soldierAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("animation/Rest");//休息
+            soldierAnimator.SetBool("idol",true);
+            soldierAnimator.SetBool("run",false);//休息
         }
-    }
-
-    private void AttackForRest()
-    {
-        soldierAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("animation/Rest");//休息
     }
 ```
 
