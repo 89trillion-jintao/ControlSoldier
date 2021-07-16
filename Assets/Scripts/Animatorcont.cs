@@ -9,19 +9,19 @@ public class Animatorcont : MonoBehaviour
     [SerializeField] private Animator soldierAnimator;
     void Update()
     {
-        if (Input.GetKey("a"))
+        if (Input.GetKey(KeyCode.A))
         {
             soldierAnimator.SetTrigger("attack");//攻击一次后进入休息状态
             soldierAnimator.SetBool("run",false);
         }
-        if (Input.GetKey("r"))
+        if (Input.GetKey(KeyCode.R))
         {
             soldierAnimator.SetBool("run",true);
-            soldierAnimator.SetBool("idol",false);//奔跑
+            soldierAnimator.SetBool("idle",false);//奔跑
         }
-        if (Input.GetKey("i"))
+        if (Input.GetKey(KeyCode.I))
         {
-            soldierAnimator.SetBool("idol",true);
+            soldierAnimator.SetBool("idle",true);
             soldierAnimator.SetBool("run",false);//休息
         }
     }
